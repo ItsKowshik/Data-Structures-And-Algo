@@ -23,7 +23,7 @@ int right_child(int k){
     return 2*k+1;
 }
 void bubble_up(int k){
-    if(parent(k)==-1){
+    if(heap[parent(k)]==-1){
         return;
     }
     if(heap[parent(k)]>heap[k]){
@@ -48,7 +48,7 @@ void bubble_down(int k, int n){
     int l = left_child(k);
     int r = right_child(k);
     int min = k;
-    if(r<=heap_size){
+    if(l<=heap_size){
         if((heap[l]<heap[k]) && (heap[l]<heap[r])){
             min = l;
         }
@@ -56,7 +56,7 @@ void bubble_down(int k, int n){
             min = r;
         }
     }
-    cout<<min<<endl;
+    //cout<<min<<endl;
     if(min!=k){
         int temp = heap[k];
         heap[k] = heap[min];
