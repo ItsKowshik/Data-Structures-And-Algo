@@ -36,7 +36,7 @@ class Queue{
     //Add a value to the end of the queue
     void enqueue(int k){
         if(full()){
-            cout<<"Queue is full"<<endl;        //The queu is full
+            cout<<"Queue is full"<<endl;        //The queue is full
         }
         else{
             if(tail == size){                   //The circular condition to add the value to the beginning of the queue
