@@ -1,19 +1,21 @@
+//Created a double linked list using OOP
 #include <bits/stdc++.h>
 
 using namespace std;
-
+/*The interface for the node structure*/
 struct node{
-    int data;
-    node* next = NULL;
-    node* prev = NULL;
+    int data;                   /* data */    
+    node* next = NULL;          /*the next pointer*/
+    node* prev = NULL;          //the previous pointer
 };
-
+/*Created the double linked list interface class*/
 class Double_LL{
     public:
-    node* head;
+    node* head;                 //head pointer
     Double_LL(){
-        head = NULL;
+        head = NULL;            //Default constructor
     }
+    //Search the node with key x
     node* search(int k){
         node* x = head;
         while((x!=NULL) && (x->data!=k)){
@@ -21,6 +23,7 @@ class Double_LL{
         }
         return x;
     }
+    //Insert the node with key k at the beginning of the list
     void prepend(int k){
         node* x = new node;
         x->data = k;
@@ -31,6 +34,7 @@ class Double_LL{
         head = x;
 
     }
+    //Insert the node with key y after the node with key x
     void insert(int x, int y){
         node* r = search(x);
         node* n = new node;
@@ -41,6 +45,7 @@ class Double_LL{
         else{
             n->next = r->next;
             r->next = n;
+            //Inserting at the end of the list
             if(n->next!=NULL){
                 n->prev = n->next->prev;
                 n->next->prev =n;
@@ -50,6 +55,7 @@ class Double_LL{
             }
         }
     }
+    //Delete the node with key x
     void deleteNode(int x){
         node* r = search(x);
         if(r == NULL){
@@ -64,6 +70,7 @@ class Double_LL{
         }
 
     }
+    //Print the linked list
     void  printList(){
         node* x = head;
         while(x!=NULL){

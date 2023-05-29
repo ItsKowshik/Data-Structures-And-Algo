@@ -1,25 +1,27 @@
+//Interface for creating a circular linked list using OOP
 #include <bits/stdc++.h>
 
 using namespace std;
-
+//General nodde object
 struct node{
-    int data;
-    node* next = NULL;
-    node* prev = NULL;
+    int data;           //data
+    node* next = NULL;  //next node
+    node* prev = NULL;  //prev node
 };
 
-
+//Double circular linked list interface
 class Circular_LL{
     public:
     //node* head;
-    node* nil;
-    
+    node* nil;      //the sentinel node
+    //Default constructor
     Circular_LL(){
         nil = new node;
         nil->data = 0;
         nil->next = nil;
         nil->prev = nil;
     }
+    //Search node with key x
     node* search(int x){
         node* h = nil->next;
         while((h!=nil) && (h->data!=x)){
@@ -28,6 +30,7 @@ class Circular_LL{
         return h;
 
     }
+    //Add a node with key x at the beginning of the list
     void prepend(int x){
         node* n = new node;
         n->data = x;
@@ -37,6 +40,7 @@ class Circular_LL{
         n->prev = nil;
         
     }
+    //Insert a node with key y after node with key x
     void insert(int x,int y){
         node* r = search(x);
         if(r==nil){
@@ -51,6 +55,7 @@ class Circular_LL{
             n->prev = r;
         }
     }
+    //Delete the node with key x
     void deleteNode(int x){
         node* r = search(x);
         if(r==nil){
@@ -61,6 +66,7 @@ class Circular_LL{
             r->next->prev = r->prev;
         }
     }
+    //Print the list
     void printList(){
         node* h = nil->next;
         while(h!=nil){
