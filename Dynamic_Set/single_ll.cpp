@@ -12,6 +12,7 @@ struct Node{
 //The single linked list interface
 class Single_LL{
     public:
+    
     Node* head;             //The pointer to the head of the list;
     Single_LL(){
         head = NULL;        //Default constructor to set the head to NULL;

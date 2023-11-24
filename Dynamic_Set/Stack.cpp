@@ -9,7 +9,7 @@ class Stack{
     int top;        //Top pointer of stack
     int size=100;   //Maximum size of stack
     int s[100];     //Stack represented by dynamic array.
-    //Public members
+                    //Public members
     public:
     //Constructor
     Stack(int n){
